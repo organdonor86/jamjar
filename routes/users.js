@@ -1,3 +1,5 @@
+'use strict':
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -82,7 +84,7 @@ router.get('/logout', function(req, res){
 });
 
 // Profile page
-router.get('/profile', function(req, res){  
+router.get('/profile', function(req, res){
     res.render('profile', {
       title: 'User Profile',
       profile: res.locals.user
