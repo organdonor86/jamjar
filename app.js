@@ -23,7 +23,7 @@ db.on('error', function(err){
 });
 
 // Initialise app
-app = express();
+const app = express();
 // Bring in models
 let Article = require('./models/article');
 
