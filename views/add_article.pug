@@ -1,0 +1,20 @@
+extends layout
+
+block content  
+  .container    
+    .body-wrap
+      form(method="POST", action ='/articles/add')
+        .field
+          label.label Article Title
+          p.control
+            input.input(name="title", type='text', placeholder='Text input')       
+        .field
+          label.label Article Text
+          p.control
+            textarea.textarea(name="body", placeholder='Textarea')
+        
+        .field.is-grouped
+          p.control
+            button.button.is-primary(type="submit", value="submit") Submit
+          p.control
+            a.button.button(href="/") Cancel

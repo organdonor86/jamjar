@@ -1,0 +1,6 @@
+.messages.nofity
+  each type in Object.keys(messages)    
+      each message in messages[type]        
+        div(class="notification is-"+type) #{message}
+          button.delete
+          

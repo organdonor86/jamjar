@@ -1,0 +1,69 @@
+doctype html
+html
+  head
+    title #{title}
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet' href='/css/libs.css')
+    link(rel='stylesheet' href='/css/app.css')
+    link(href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet")
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+      
+  body
+    .footer-wrap
+      .notify
+        != messages('message', locals)    
+        if errors
+          each error, i in errors        
+            div(class="notification is-danger") #{error.msg}
+              button.delete
+        
+      // Navbar    
+      .nav
+        .container      
+          .nav-left
+            a.nav-item(href='/')
+              span.logo Jam Jar
+          .nav-center
+            if user
+              span.nav-item Hi #{user.name}                            
+            a.nav-item
+              span.icon
+                i.fa.fa-twitter
+            
+          // This "nav-toggle" hamburger menu is only visible on mobile
+          // You need JavaScript to toggle the "is-active" class on "nav-menu"
+          span.nav-toggle
+            span
+            span
+            span
+              
+          // This "nav-menu" is hidden on mobile
+          // Add the modifier "is-active" to display it on mobile
+          ul.nav-right.nav-menu
+            .nav-item
+              .field.is-grouped
+                if user
+                  p.control
+                    a(href='/articles/add')
+                      .button.is-light Add Article
+                  p.control
+                    a(href='/users/profile')
+                      .button.is-light Profile
+                  p.control
+                    a(href='/users/logout')
+                      .button.is-light Log out
+                else
+                  a.nav-item(href='/users/register')
+                    .button.is-light Register
+                  a.nav-item(href='/users/login')
+                    .button.is-light Login
+      section.hero
+        .container.content
+          h1 Express CRUD App
+      section.body       
+        block content
+    footer
+      p Copyright &copy; 2017
+    script(type='text/javascript' src='/js/scripts.js')
+    script(src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=zd7zs78fr94yql01xojr2uxreiltgd73vjjzla3gz7b4h455")
+    

@@ -1,0 +1,33 @@
+extends layout
+
+block content  
+  .container
+    .columns
+      .column.is-4
+      .column.is-4      
+        form(method="POST", action ='/users/register')
+          .field
+            label.label Name
+            p.control
+              input.input(name="name", type='text', placeholder='Name')
+          .field
+            label.label Email address
+            p.control
+              input.input(name="email", type='email', placeholder='Email address')
+          .field
+            label.label Username
+            p.control
+              input.input(name="username", type='text', placeholder='Username')
+          .field
+            label.label Password
+            p.control
+              input.input(name="password", type='password', placeholder='Password')
+          .field
+            label.label Confirm password
+            p.control
+              input.input(name="password2", type='password', placeholder='Password')           
+          .field.is-grouped
+            p.control
+              button.button.is-dark(type="submit", value="submit") Register
+            p.control
+              a.button.button.is-light(href="/") Cancel

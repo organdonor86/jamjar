@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container
+    .columns
+      .column.is-3.content
+        .body-wrap
+          .ib        
+            h1= article.title
+            h7 Written by #{article.author} 
+            hr
+            if user
+              if user.username == article.author
+                .field.is-grouped       
+                  p.control
+                    a.button.is-light.is-small(href="/articles/edit/"+article._id) Edit Article 
+                  p.control
+                    a.button.is-light.is-small.delete-article(href="#", data-id=article._id) Delete Article      
+      .column.is-9.content
+        .body-wrap
+          p= article.body

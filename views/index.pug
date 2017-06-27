@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .container     
+    each article, i in articles
+      // use equal sign to get variables    
+      .columns
+        .column.is-3.content
+          .body-wrap                        
+            a(href="/articles/"+article._id)
+              h1= article.title
+            h7 Written by #{article.author}              
+        .column.is-9.content
+          .body-wrap
+            p= article.body

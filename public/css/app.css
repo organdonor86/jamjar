@@ -1,0 +1,56 @@
+* {
+  outline: none; }
+
+html, body {
+  height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column; }
+
+.footer-wrap {
+  flex: 1 0 auto; }
+
+.body-wrap {
+  max-width: 600px;
+  margin: auto;
+  padding: 0 15px; }
+
+.logo {
+  font-family: 'Monoton', cursive;
+  font-size: 2em; }
+
+.hero {
+  padding: 50px 0;
+  background-color: #1e1e1e; }
+  .hero h1 {
+    color: #fff; }
+
+.body {
+  padding: 50px 0; }
+
+footer {
+  border-top: 1px solid #e2e2e2; }
+
+.ib {
+  display: inline-block; }
+
+.notify {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 1000; }
+  .notify div {
+    padding: 15px;
+    padding-right: 40px; }
+  .notify .is-error {
+    background-color: red;
+    color: #fff; }
+  .notify .is-success {
+    background-color: green;
+    color: #fff; }
+
+.body-field {
+  height: 300px; }
+
+/*# sourceMappingURL=app.css.map */
