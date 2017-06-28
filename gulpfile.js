@@ -4,12 +4,12 @@ const gulp = require('gulp');
 const nodemon = require('gulp-nodemon');
 
 const concat = require('gulp-concat');
-// const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify');
+const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const maps = require('gulp-sourcemaps');
 const del = require('del');
-
 
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload();
@@ -33,18 +33,22 @@ gulp.task('compileSass', () => {
   .pipe(gulp.dest('public/css'));
 });
 
-
-// Concatinate SCSS
+// Concatinate CSS Libs
 gulp.task('concatCss', () => {
   return gulp.src([
-    // 'node_modules/reset-css/reset.css',
     'node_modules/bulma/css/bulma.css'
-    // 'bower_components/bootstrap/less/bootstrap.less',
   ])
   .pipe(maps.init())
   .pipe(concat('libs.css'))
   .pipe(maps.write('.'))
   .pipe(gulp.dest('public/css'))
+});
+
+gulp.task('minifyCss', () => {
+  return gulp.src('public/css/*.css')
+  // .pipe(concat('libs.css'))
+  .pipe(cleanCSS({compatibility: 'ie8'}))
+  .pipe(gulp.dest('public/css'));
 });
 
 
